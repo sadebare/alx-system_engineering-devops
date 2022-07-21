@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # This script is displaying Best School 10 times, if 9 then Hi
 
-count=1
+count=0
 
-while [ $count -le 9 ]
+while [ $count -lt 10 ]
 do
     if [ $count -eq 9 ]
     then
