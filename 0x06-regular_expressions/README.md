@@ -1,7 +1,7 @@
 #   0x06-regular_expressions
 #   Tasks
 
-#   Files   |   Description
+   Files   |   Description
 ------------|--------------
 [0-simply_match_school.rb](./0-simply_match_school.rb)  |   The regular expression must match School
 [1-repetition_token_0.rb](./1-repetition_token_0.rb)    |   Find the regular expression that will match the hbttn hbtttn hbttttn cases
