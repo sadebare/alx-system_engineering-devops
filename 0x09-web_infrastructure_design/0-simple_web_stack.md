@@ -1,7 +1,7 @@
 #   Simple Web Stack
 ![image](./0-simple_web_stack.png)
 ##  Description
-This is a simple web infrastucture of www.foobar.com which is composed of LAMP (Linux, Apache server, MySql and PHP) stack. This illustrates the process taken when a host is trying to access a website.
+This is a simple web infrastucture of www.foobar.com which is composed of LAMP (Linux, Apache server, MySql and PHP) stack. It illustrates the process taken when a host is trying to access a website.
 
 ##  some specifics about this infrastructure:
 -   What is a server:<br>
@@ -13,8 +13,8 @@ This is a simple web infrastucture of www.foobar.com which is composed of LAMP (
 -   What is the role of the database: <br>Major role to maintain a collection of organized information that can easily be accessed, managed and updated
 -   What is the server using to communicate with the computer of the user requesting the website:<br> It uses TCP/IP protocol(Transmission control protocol / Internet protocol).
 ##   Issues with the above infrastructure
--   Single Point Of Failure (SPOF): <br>This is a great factor that affects the the infrastructure provided above based on the fact that if any of the infrastructure get spoilt or has fault, there is no replace for them.
+-   Single Point Of Failure (SPOF): <br>This is a great factor that affects the the infrastructure provided above based on the fact that if any of the infrastructure get spoilt or has fault, there is no replace for it.
 -   Downtime when maintenance needed (like deploying new code web server needs to be restarted):- <br>
-Anytime we have to make some maintenace on the infrastructure, we have to put of one of the infra you want to work one because all the server provided does not have any fail over infrastructure.
+Anytime you have to make some maintenace on the infrastructure, you have to put off one of the infrastructure which will lead to downtime for all the connected infrastructure.
 -   Cannot scale if too much incoming traffic:- <br>
-In this case, if the requested sent to the server is of its peak that it can not take any other traffic anymore, the server might crash.
+In this case, if requeste are being sent to the server and unfortunately it got to the peak that the server can not take in any request anymore, the server might crash.
