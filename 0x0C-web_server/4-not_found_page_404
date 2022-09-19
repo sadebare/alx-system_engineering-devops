@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Bash script to install nginx, listening on port 80, returns a webpage when querying nginx at root
+apt-get update
+apt-get install nginx -y
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+sed -i "/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+sed -i "/listen 80 default_server/a error_page 404 /custom_404.html;location = /custom_404.html {root /usr/share/nginx/html;internal;}" /etc/nginx/sites-available/default
+service nginx restart
