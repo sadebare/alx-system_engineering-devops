@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install Nginx server and a custom header
+# Configure new nginx server to have a custom header
 apt-get update
 apt-get install nginx -y
 ufw allow 'Nginx HTTP'
