@@ -34,16 +34,25 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 
 
-# Setting up SSL from tutorial
-
-frontend www
+frontend http
         bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/barryapp.tech/all.pem
-        use_backend www
+        http-request set-header X-Forwarded-For %[src]
+        http-request set-header X-Forwarded-Proto https if { ssl_fc }
+        default_backend http-backend
 
-backend www
+frontend https
+        bind *:443 ssl crt /etc/letsencrypt/live/www.barryapp.tech.pem
+        http-request set-header X-Forwarded-For %[src]
+        http-request set-header X-Forwarded-Proto https if { ssl_fc }
+        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+        use_backend letsencrypt-backend if letsencrypt-acl
+        default_backend http-backend
+
+backend http-backend
         balance roundrobin
-    option httpclose
-        option forwardfor
+        redirect scheme https if !{ ssl_fc }
         server 19161-web-01 35.170.73.158:80 check
         server 19161-web-02 35.170.73.117:80 check
+
+backend letsencrypt-backend
+        server letsencrypt 127.0.0.1:54321
