@@ -1,13 +1,7 @@
 #!/usr/bin/python3
-"""
-Exports data in the JSON format
-"""
-
-from fileinput import filename
-
+"""Exports data in the JSON format"""
 
 if __name__ == "__main__":
-
 
     import json
     import requests
